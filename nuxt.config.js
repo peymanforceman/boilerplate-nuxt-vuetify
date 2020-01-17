@@ -106,7 +106,7 @@ export default {
   ** Build configuration
   */
   build: {
-    ostcss: {
+    postcss: {
       preset: {
         features: {
           customProperties: false
