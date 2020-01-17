@@ -1,10 +1,10 @@
 # boilerplate-nuxt-vuetify
 
 > Nuxt.js project  ( SSR )
-> Vuetify
-> Authentication
-> i18n translator
-> pluralize
+- Vuetify
+- Authentication
+- i18n translator
+- pluralize
 
 ## Build Setup
 
