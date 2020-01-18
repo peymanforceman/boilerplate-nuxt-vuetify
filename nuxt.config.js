@@ -27,14 +27,7 @@ export default {
   css: [
     // '@/assets/style/index.scss'
   ],
-  /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [
-    // '@/plugins/vuetify',
-    '@/plugins/mixins/pluralize',
-    {src: '@/plugins/chartist', mode: 'client'}
-  ],
+
   /*
   ** Nuxt.js dev-modules
   */
@@ -50,23 +43,36 @@ export default {
     '@nuxtjs/auth'
   ],
   /*
+  ** Plugins to load before mounting the App
+  */
+  plugins: [
+    // '@/plugins/vuetify',
+    '@/plugins/mixins/pluralize',
+    '@/plugins/mixins/user.js',
+    '@/plugins/mixins/validation.js',
+    '@/plugins/axios.js',
+    {src: '@/plugins/chartist', mode: 'client'}
+  ],
+  /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    // baseURL:''
+    baseURL: 'http://backpizza.test/api'
   },
   auth: {
     strategies: {
       local: {
         endpoints: {
           login: {
-            url: 'login', method: 'post', propertyName: 'meta.token'
+            url: 'auth/sign-in', method: 'post', propertyName: 'meta.token'
           },
           user: {
-            url: 'me', method: 'get', propertyName: 'data'
+            url: 'auth/me', method: 'get', propertyName: 'data'
           },
-          logout: {} //
+          logout: {
+            url: 'auth/sign-out', method: 'post'
+          } //
         }
       }
     },
@@ -77,7 +83,7 @@ export default {
   },
   router: {
     middleware: [
-      // 'clearValidationErrors'
+      'clearValidationErrors'
     ]
   },
   /*
@@ -85,7 +91,7 @@ export default {
   ** https://github.com/nuxt-community/vuetify-module
   */
   vuetify: {
-    customVariables: ['~/assets/variables.scss', '@mdi/font/css/materialdesignicons.css'],
+    customVariables: ['@mdi/font/css/materialdesignicons.css', '~/assets/scss/variables.scss',],
     iconfont: 'mdi',
     theme: {
       dark: false,
