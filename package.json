@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.0.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "nodemon": "^2.0.2",
     "sass-loader": "^8.0.2",
     "stylus": "^0.54.7",
